@@ -255,3 +255,776 @@ CL-USER> (hook-up-operator (make-operator :name 'TEST :preconditions '((T B-ON-A
  #< (G787)START -> (G788)A-TABLE-TO-B : (T A-ON-TABLE) >
  #< (G789)A-TABLE-TO-B -> (G790)GOAL : (T A-ON-B) >)
 CL-USER> (hook-up-operator (make-operator :name 'TEST :preconditions '((T A-ON-B)) :effects 'NIL) (elt *operators* 0) '(T B-ON-A) *plan* 0 5 t)
+
+(#< (G809)TEST -> (G810)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G775)B-A-TO-TABLE -> (G776)GOAL : (T A-CLEAR) >
+ #< (G777)B-A-TO-TABLE -> (G778)GOAL : (T B-ON-TABLE) >
+ #< (G779)START -> (G780)B-A-TO-TABLE : (T B-CLEAR) >
+ #< (G781)START -> (G782)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G783)B-A-TO-TABLE -> (G784)A-TABLE-TO-B : (T A-CLEAR) >
+ #< (G785)START -> (G786)A-TABLE-TO-B : (T B-CLEAR) >
+ #< (G787)START -> (G788)A-TABLE-TO-B : (T A-ON-TABLE) >
+ #< (G789)A-TABLE-TO-B -> (G790)GOAL : (T A-ON-B) >) 
+(#< (G809)TEST -> (G810)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G775)B-A-TO-TABLE -> (G776)GOAL : (T A-CLEAR) >
+ #< (G777)B-A-TO-TABLE -> (G778)GOAL : (T B-ON-TABLE) >
+ #< (G779)START -> (G780)B-A-TO-TABLE : (T B-CLEAR) >
+ #< (G781)START -> (G782)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G783)B-A-TO-TABLE -> (G784)A-TABLE-TO-B : (T A-CLEAR) >
+ #< (G785)START -> (G786)A-TABLE-TO-B : (T B-CLEAR) >
+ #< (G787)START -> (G788)A-TABLE-TO-B : (T A-ON-TABLE) >
+ #< (G789)A-TABLE-TO-B -> (G790)GOAL : (T A-ON-B) >)
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 01:59:21 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.055
+CL-USER> (hook-up-operator (make-operator :name 'TEST :preconditions '((T B-ON-A)) :effects '((T B-ON-TABLE))) (elt *operators* 0) '(T B-ON-A) *plan* 0 5 t)
+
+(#< (G843)TEST -> (G844)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G811)B-A-TO-TABLE -> (G812)GOAL : (T A-CLEAR) >
+ #< (G813)B-A-TO-TABLE -> (G814)GOAL : (T B-ON-TABLE) >
+ #< (G815)START -> (G816)B-A-TO-TABLE : (T B-CLEAR) >
+ #< (G817)START -> (G818)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G819)B-A-TO-TABLE -> (G820)A-TABLE-TO-B : (T A-CLEAR) >
+ #< (G821)START -> (G822)A-TABLE-TO-B : (T B-CLEAR) >
+ #< (G823)START -> (G824)A-TABLE-TO-B : (T A-ON-TABLE) >
+ #< (G825)A-TABLE-TO-B -> (G826)GOAL : (T A-ON-B) >) 
+(#< (G843)TEST -> (G844)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G811)B-A-TO-TABLE -> (G812)GOAL : (T A-CLEAR) >
+ #< (G813)B-A-TO-TABLE -> (G814)GOAL : (T B-ON-TABLE) >
+ #< (G815)START -> (G816)B-A-TO-TABLE : (T B-CLEAR) >
+ #< (G817)START -> (G818)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G819)B-A-TO-TABLE -> (G820)A-TABLE-TO-B : (T A-CLEAR) >
+ #< (G821)START -> (G822)A-TABLE-TO-B : (T B-CLEAR) >
+ #< (G823)START -> (G824)A-TABLE-TO-B : (T A-ON-TABLE) >
+ #< (G825)A-TABLE-TO-B -> (G826)GOAL : (T A-ON-B) >)
+CL-USER> *plan*
+#< PLAN operators: 
+#S(OPERATOR
+   :NAME B-A-TO-TABLE
+   :UNIQ G839
+   :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+   :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+#S(OPERATOR
+   :NAME A-TABLE-TO-B
+   :UNIQ G840
+   :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+   :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+#S(OPERATOR
+   :NAME START
+   :UNIQ G841
+   :PRECONDITIONS NIL
+   :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+#S(OPERATOR
+   :NAME GOAL
+   :UNIQ G842
+   :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+   :EFFECTS NIL) 
+links: 
+#< (G811)B-A-TO-TABLE -> (G812)GOAL : (T A-CLEAR) >
+#< (G813)B-A-TO-TABLE -> (G814)GOAL : (T B-ON-TABLE) >
+#< (G815)START -> (G816)B-A-TO-TABLE : (T B-CLEAR) >
+#< (G817)START -> (G818)B-A-TO-TABLE : (T B-ON-A) >
+#< (G819)B-A-TO-TABLE -> (G820)A-TABLE-TO-B : (T A-CLEAR) >
+#< (G821)START -> (G822)A-TABLE-TO-B : (T B-CLEAR) >
+#< (G823)START -> (G824)A-TABLE-TO-B : (T A-ON-TABLE) >
+#< (G825)A-TABLE-TO-B -> (G826)GOAL : (T A-ON-B) > 
+orderings: 
+#[ (G827)B-A-TO-TABLE -> (G828)A-TABLE-TO-B ]
+#[ (G829)B-A-TO-TABLE -> (G830)GOAL ]
+#[ (G831)START -> (G832)B-A-TO-TABLE ]
+#[ (G833)A-TABLE-TO-B -> (G834)GOAL ]
+#[ (G835)START -> (G836)A-TABLE-TO-B ]
+#[ (G837)START -> (G838)GOAL ]
+>
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 02:05:50 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.057
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 02:08:15 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.059
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 02:11:16 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.081
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:11:04 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.055
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:18:37 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.054
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:21:04 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (CONS FROM MAYBE-THREATENED-LINK)
+; ==>
+;   MAYBE-THREATENED-LINK
+; 
+; note: deleting unreachable code
+
+;     (CONS TO MAYBE-THREATENED-LINK)
+; ==>
+;   MAYBE-THREATENED-LINK
+; 
+; note: deleting unreachable code
+; 
+; compilation unit finished
+;   printed 2 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.057
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:21:19 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.056
+CL-USER> *plan*
+#< PLAN operators: 
+#S(OPERATOR
+   :NAME B-A-TO-TABLE
+   :UNIQ G1065
+   :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+   :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+#S(OPERATOR
+   :NAME A-TABLE-TO-B
+   :UNIQ G1066
+   :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+   :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+#S(OPERATOR
+   :NAME START
+   :UNIQ G1067
+   :PRECONDITIONS NIL
+   :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+#S(OPERATOR
+   :NAME GOAL
+   :UNIQ G1068
+   :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+   :EFFECTS NIL) 
+links: 
+#< (G1037)B-A-TO-TABLE -> (G1038)GOAL : (T A-CLEAR) >
+#< (G1039)B-A-TO-TABLE -> (G1040)GOAL : (T B-ON-TABLE) >
+#< (G1041)START -> (G1042)B-A-TO-TABLE : (T B-CLEAR) >
+#< (G1043)START -> (G1044)B-A-TO-TABLE : (T B-ON-A) >
+#< (G1045)B-A-TO-TABLE -> (G1046)A-TABLE-TO-B : (T A-CLEAR) >
+#< (G1047)START -> (G1048)A-TABLE-TO-B : (T B-CLEAR) >
+#< (G1049)START -> (G1050)A-TABLE-TO-B : (T A-ON-TABLE) >
+#< (G1051)A-TABLE-TO-B -> (G1052)GOAL : (T A-ON-B) > 
+orderings: 
+#[ (G1053)B-A-TO-TABLE -> (G1054)A-TABLE-TO-B ]
+#[ (G1055)B-A-TO-TABLE -> (G1056)GOAL ]
+#[ (G1057)START -> (G1058)B-A-TO-TABLE ]
+#[ (G1059)A-TABLE-TO-B -> (G1060)GOAL ]
+#[ (G1061)START -> (G1062)A-TABLE-TO-B ]
+#[ (G1063)START -> (G1064)GOAL ]
+>
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:34:24 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     ((OR NIL NIL))
+; 
+; caught ERROR:
+;   illegal function call
+; 
+; caught ERROR:
+;   illegal function call
+
+;     (IF ((OR NIL NIL))
+;         (APPEND (CONS TO MAYBE-THREATENED-LINK)))
+; 
+; note: deleting unreachable code
+
+;     (CONS TO MAYBE-THREATENED-LINK)
+; ==>
+;   TO
+; 
+; note: deleting unreachable code
+
+;     (IF ((OR NIL NIL))
+;         (APPEND (CONS FROM MAYBE-THREATENED-LINK)))
+; 
+; note: deleting unreachable code
+
+;     (CONS FROM MAYBE-THREATENED-LINK)
+; ==>
+;   FROM
+; 
+; note: deleting unreachable code
+; 
+; compilation unit finished
+;   caught 2 ERROR conditions
+;   printed 4 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.059
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:40:27 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     ((OR NIL NIL))
+; 
+; caught ERROR:
+;   illegal function call
+
+;     (IF ((OR NIL NIL))
+;         (APPEND (CONS TO MAYBE-THREATENED-LINK)))
+; 
+; note: deleting unreachable code
+
+;     (CONS TO MAYBE-THREATENED-LINK)
+; ==>
+;   TO
+; 
+; note: deleting unreachable code
+; 
+; compilation unit finished
+;   caught 1 ERROR condition
+;   printed 2 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.060
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:41:45 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     ((NOT (MAPCAR #'MEMBER PRECONDITIONS TMP)))
+; 
+; caught ERROR:
+;   illegal function call
+
+;     (IF ((NOT (MAPCAR #'MEMBER PRECONDITIONS TMP)))
+;         (APPEND (CONS TO MAYBE-THREATENED-LINK)))
+; 
+; note: deleting unreachable code
+
+;     (CONS TO MAYBE-THREATENED-LINK)
+; ==>
+;   TO
+; 
+; note: deleting unreachable code
+; 
+; compilation unit finished
+;   caught 1 ERROR condition
+;   printed 2 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.066
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:41:56 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.054
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:43:51 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.062
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:00:56 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.066
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:01:46 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.058
+CL-USER> *plan*
+#< PLAN operators: 
+#S(OPERATOR
+   :NAME B-A-TO-TABLE
+   :UNIQ G1193
+   :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+   :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+#S(OPERATOR
+   :NAME A-TABLE-TO-B
+   :UNIQ G1194
+   :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+   :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+#S(OPERATOR
+   :NAME START
+   :UNIQ G1195
+   :PRECONDITIONS NIL
+   :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+#S(OPERATOR
+   :NAME GOAL
+   :UNIQ G1196
+   :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+   :EFFECTS NIL) 
+links: 
+#< (G1165)B-A-TO-TABLE -> (G1166)GOAL : (T A-CLEAR) >
+#< (G1167)B-A-TO-TABLE -> (G1168)GOAL : (T B-ON-TABLE) >
+#< (G1169)START -> (G1170)B-A-TO-TABLE : (T B-CLEAR) >
+#< (G1171)START -> (G1172)B-A-TO-TABLE : (T B-ON-A) >
+#< (G1173)B-A-TO-TABLE -> (G1174)A-TABLE-TO-B : (T A-CLEAR) >
+#< (G1175)START -> (G1176)A-TABLE-TO-B : (T B-CLEAR) >
+#< (G1177)START -> (G1178)A-TABLE-TO-B : (T A-ON-TABLE) >
+#< (G1179)A-TABLE-TO-B -> (G1180)GOAL : (T A-ON-B) > 
+orderings: 
+#[ (G1181)B-A-TO-TABLE -> (G1182)A-TABLE-TO-B ]
+#[ (G1183)B-A-TO-TABLE -> (G1184)GOAL ]
+#[ (G1185)START -> (G1186)B-A-TO-TABLE ]
+#[ (G1187)A-TABLE-TO-B -> (G1188)GOAL ]
+#[ (G1189)START -> (G1190)A-TABLE-TO-B ]
+#[ (G1191)START -> (G1192)GOAL ]
+>
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; Evaluation aborted on #<UNDEFINED-FUNCTION LINK-PRECONDITION {10057BBB33}>.
+CL-USER> *links*
+(#< (G1165)B-A-TO-TABLE -> (G1166)GOAL : (T A-CLEAR) >
+ #< (G1167)B-A-TO-TABLE -> (G1168)GOAL : (T B-ON-TABLE) >
+ #< (G1169)START -> (G1170)B-A-TO-TABLE : (T B-CLEAR) >
+ #< (G1171)START -> (G1172)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G1173)B-A-TO-TABLE -> (G1174)A-TABLE-TO-B : (T A-CLEAR) >
+ #< (G1175)START -> (G1176)A-TABLE-TO-B : (T B-CLEAR) >
+ #< (G1177)START -> (G1178)A-TABLE-TO-B : (T A-ON-TABLE) >
+ #< (G1179)A-TABLE-TO-B -> (G1180)GOAL : (T A-ON-B) >)
+CL-USER> (elt *links* 0)
+#< (G1165)B-A-TO-TABLE -> (G1166)GOAL : (T A-CLEAR) >
+CL-USER> (link-precond (elt *links* 0))
+(T A-CLEAR)
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:31:38 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.064
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:32:13 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.079
+; Evaluation aborted on #<TYPE-ERROR expected-type: LIST datum: T>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; Evaluation aborted on #<TYPE-ERROR expected-type:
+             (OR (VECTOR CHARACTER) (VECTOR NIL) BASE-STRING SYMBOL CHARACTER)
+             datum: (A-CLEAR)>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:33:37 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.063
+; Evaluation aborted on #<TYPE-ERROR expected-type:
+             (OR (VECTOR CHARACTER) (VECTOR NIL) BASE-STRING SYMBOL CHARACTER)
+             datum: (A-CLEAR)>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:33:37 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.061
+; Evaluation aborted on #<TYPE-ERROR expected-type:
+             (OR (VECTOR CHARACTER) (VECTOR NIL) BASE-STRING SYMBOL CHARACTER)
+             datum: (A-CLEAR)>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:42:14 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.061
+; Evaluation aborted on #<TYPE-ERROR expected-type:
+             (OR (VECTOR CHARACTER) (VECTOR NIL) BASE-STRING SYMBOL CHARACTER)
+             datum: (A-CLEAR)>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:42:28 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.054
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:42:36 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.057
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:43:07 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.057
+; Evaluation aborted on #<TYPE-ERROR expected-type:
+             (OR (VECTOR CHARACTER) (VECTOR NIL) BASE-STRING SYMBOL CHARACTER)
+             datum: (A-CLEAR)>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:43:30 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.055
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:44:32 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.061
+; Evaluation aborted on #<UNDEFINED-FUNCTION PREDICATE-A {100212F3F3}>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:45:00 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.057
+; Evaluation aborted on #<UNDEFINED-FUNCTION PREDICATE-A {10038A15D3}>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:45:08 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.065
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:45:59 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.062
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+NIL 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:46:05 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.067
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:46:19 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.059
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:46:26 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.063
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+(NIL) 
+NIL 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+NIL 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:46:37 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.058
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:47:04 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.061
+; Evaluation aborted on #<UNDEFINED-FUNCTION TMP-FROM-PRECONDITIONS {1001E09E03}>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+(NIL) 
+NIL 
+NIL 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:47:19 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.058
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+NIL 
+NIL 
+(NIL) 
+NIL 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+NIL 
+NIL 
+NIL 
+NIL
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+NIL 
+NIL 
+(NIL) 
+NIL 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+NIL 
+NIL 
+NIL 
+NIL
+CL-USER> (elt *links* 0)
+#< (G1773)B-A-TO-TABLE -> (G1774)GOAL : (T A-CLEAR) >
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:49:41 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.055
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+NIL 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+NIL 
+NIL 
+NIL 
+"---------" 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:49:59 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.106
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; Evaluation aborted on #<SB-INT:SIMPLE-PROGRAM-ERROR "invalid number of arguments: ~S" {100346FF63}>.
+CL-USER> (every t '(t t t))
+; Evaluation aborted on #<UNDEFINED-FUNCTION T {10039876B3}>.
+CL-USER> (every (lambda (x) x) '(t t t))
+T
+CL-USER> (every (lambda (x) (not x)) '(t t t))

@@ -349,4 +349,1259 @@ orderings:
 
 ; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
 ; compilation finished in 0:00:00.081
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:11:04 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.055
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:18:37 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.054
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:21:04 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (CONS FROM MAYBE-THREATENED-LINK)
+; ==>
+;   MAYBE-THREATENED-LINK
+; 
+; note: deleting unreachable code
+
+;     (CONS TO MAYBE-THREATENED-LINK)
+; ==>
+;   MAYBE-THREATENED-LINK
+; 
+; note: deleting unreachable code
+; 
+; compilation unit finished
+;   printed 2 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.057
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:21:19 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.056
+CL-USER> *plan*
+#< PLAN operators: 
+#S(OPERATOR
+   :NAME B-A-TO-TABLE
+   :UNIQ G1065
+   :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+   :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+#S(OPERATOR
+   :NAME A-TABLE-TO-B
+   :UNIQ G1066
+   :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+   :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+#S(OPERATOR
+   :NAME START
+   :UNIQ G1067
+   :PRECONDITIONS NIL
+   :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+#S(OPERATOR
+   :NAME GOAL
+   :UNIQ G1068
+   :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+   :EFFECTS NIL) 
+links: 
+#< (G1037)B-A-TO-TABLE -> (G1038)GOAL : (T A-CLEAR) >
+#< (G1039)B-A-TO-TABLE -> (G1040)GOAL : (T B-ON-TABLE) >
+#< (G1041)START -> (G1042)B-A-TO-TABLE : (T B-CLEAR) >
+#< (G1043)START -> (G1044)B-A-TO-TABLE : (T B-ON-A) >
+#< (G1045)B-A-TO-TABLE -> (G1046)A-TABLE-TO-B : (T A-CLEAR) >
+#< (G1047)START -> (G1048)A-TABLE-TO-B : (T B-CLEAR) >
+#< (G1049)START -> (G1050)A-TABLE-TO-B : (T A-ON-TABLE) >
+#< (G1051)A-TABLE-TO-B -> (G1052)GOAL : (T A-ON-B) > 
+orderings: 
+#[ (G1053)B-A-TO-TABLE -> (G1054)A-TABLE-TO-B ]
+#[ (G1055)B-A-TO-TABLE -> (G1056)GOAL ]
+#[ (G1057)START -> (G1058)B-A-TO-TABLE ]
+#[ (G1059)A-TABLE-TO-B -> (G1060)GOAL ]
+#[ (G1061)START -> (G1062)A-TABLE-TO-B ]
+#[ (G1063)START -> (G1064)GOAL ]
+>
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:34:24 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     ((OR NIL NIL))
+; 
+; caught ERROR:
+;   illegal function call
+; 
+; caught ERROR:
+;   illegal function call
+
+;     (IF ((OR NIL NIL))
+;         (APPEND (CONS TO MAYBE-THREATENED-LINK)))
+; 
+; note: deleting unreachable code
+
+;     (CONS TO MAYBE-THREATENED-LINK)
+; ==>
+;   TO
+; 
+; note: deleting unreachable code
+
+;     (IF ((OR NIL NIL))
+;         (APPEND (CONS FROM MAYBE-THREATENED-LINK)))
+; 
+; note: deleting unreachable code
+
+;     (CONS FROM MAYBE-THREATENED-LINK)
+; ==>
+;   FROM
+; 
+; note: deleting unreachable code
+; 
+; compilation unit finished
+;   caught 2 ERROR conditions
+;   printed 4 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.059
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:40:27 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     ((OR NIL NIL))
+; 
+; caught ERROR:
+;   illegal function call
+
+;     (IF ((OR NIL NIL))
+;         (APPEND (CONS TO MAYBE-THREATENED-LINK)))
+; 
+; note: deleting unreachable code
+
+;     (CONS TO MAYBE-THREATENED-LINK)
+; ==>
+;   TO
+; 
+; note: deleting unreachable code
+; 
+; compilation unit finished
+;   caught 1 ERROR condition
+;   printed 2 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.060
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:41:45 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     ((NOT (MAPCAR #'MEMBER PRECONDITIONS TMP)))
+; 
+; caught ERROR:
+;   illegal function call
+
+;     (IF ((NOT (MAPCAR #'MEMBER PRECONDITIONS TMP)))
+;         (APPEND (CONS TO MAYBE-THREATENED-LINK)))
+; 
+; note: deleting unreachable code
+
+;     (CONS TO MAYBE-THREATENED-LINK)
+; ==>
+;   TO
+; 
+; note: deleting unreachable code
+; 
+; compilation unit finished
+;   caught 1 ERROR condition
+;   printed 2 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.066
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:41:56 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.054
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 03:43:51 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.062
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:00:56 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.066
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:01:46 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.058
+CL-USER> *plan*
+#< PLAN operators: 
+#S(OPERATOR
+   :NAME B-A-TO-TABLE
+   :UNIQ G1193
+   :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+   :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+#S(OPERATOR
+   :NAME A-TABLE-TO-B
+   :UNIQ G1194
+   :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+   :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+#S(OPERATOR
+   :NAME START
+   :UNIQ G1195
+   :PRECONDITIONS NIL
+   :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+#S(OPERATOR
+   :NAME GOAL
+   :UNIQ G1196
+   :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+   :EFFECTS NIL) 
+links: 
+#< (G1165)B-A-TO-TABLE -> (G1166)GOAL : (T A-CLEAR) >
+#< (G1167)B-A-TO-TABLE -> (G1168)GOAL : (T B-ON-TABLE) >
+#< (G1169)START -> (G1170)B-A-TO-TABLE : (T B-CLEAR) >
+#< (G1171)START -> (G1172)B-A-TO-TABLE : (T B-ON-A) >
+#< (G1173)B-A-TO-TABLE -> (G1174)A-TABLE-TO-B : (T A-CLEAR) >
+#< (G1175)START -> (G1176)A-TABLE-TO-B : (T B-CLEAR) >
+#< (G1177)START -> (G1178)A-TABLE-TO-B : (T A-ON-TABLE) >
+#< (G1179)A-TABLE-TO-B -> (G1180)GOAL : (T A-ON-B) > 
+orderings: 
+#[ (G1181)B-A-TO-TABLE -> (G1182)A-TABLE-TO-B ]
+#[ (G1183)B-A-TO-TABLE -> (G1184)GOAL ]
+#[ (G1185)START -> (G1186)B-A-TO-TABLE ]
+#[ (G1187)A-TABLE-TO-B -> (G1188)GOAL ]
+#[ (G1189)START -> (G1190)A-TABLE-TO-B ]
+#[ (G1191)START -> (G1192)GOAL ]
+>
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; Evaluation aborted on #<UNDEFINED-FUNCTION LINK-PRECONDITION {10057BBB33}>.
+CL-USER> *links*
+(#< (G1165)B-A-TO-TABLE -> (G1166)GOAL : (T A-CLEAR) >
+ #< (G1167)B-A-TO-TABLE -> (G1168)GOAL : (T B-ON-TABLE) >
+ #< (G1169)START -> (G1170)B-A-TO-TABLE : (T B-CLEAR) >
+ #< (G1171)START -> (G1172)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G1173)B-A-TO-TABLE -> (G1174)A-TABLE-TO-B : (T A-CLEAR) >
+ #< (G1175)START -> (G1176)A-TABLE-TO-B : (T B-CLEAR) >
+ #< (G1177)START -> (G1178)A-TABLE-TO-B : (T A-ON-TABLE) >
+ #< (G1179)A-TABLE-TO-B -> (G1180)GOAL : (T A-ON-B) >)
+CL-USER> (elt *links* 0)
+#< (G1165)B-A-TO-TABLE -> (G1166)GOAL : (T A-CLEAR) >
+CL-USER> (link-precond (elt *links* 0))
+(T A-CLEAR)
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:31:38 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.064
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:32:13 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.079
+; Evaluation aborted on #<TYPE-ERROR expected-type: LIST datum: T>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; Evaluation aborted on #<TYPE-ERROR expected-type:
+             (OR (VECTOR CHARACTER) (VECTOR NIL) BASE-STRING SYMBOL CHARACTER)
+             datum: (A-CLEAR)>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:33:37 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.063
+; Evaluation aborted on #<TYPE-ERROR expected-type:
+             (OR (VECTOR CHARACTER) (VECTOR NIL) BASE-STRING SYMBOL CHARACTER)
+             datum: (A-CLEAR)>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:33:37 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.061
+; Evaluation aborted on #<TYPE-ERROR expected-type:
+             (OR (VECTOR CHARACTER) (VECTOR NIL) BASE-STRING SYMBOL CHARACTER)
+             datum: (A-CLEAR)>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:42:14 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.061
+; Evaluation aborted on #<TYPE-ERROR expected-type:
+             (OR (VECTOR CHARACTER) (VECTOR NIL) BASE-STRING SYMBOL CHARACTER)
+             datum: (A-CLEAR)>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+(T A-CLEAR) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:42:28 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.054
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+((T A-CLEAR)) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:42:36 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.057
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:43:07 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.057
+; Evaluation aborted on #<TYPE-ERROR expected-type:
+             (OR (VECTOR CHARACTER) (VECTOR NIL) BASE-STRING SYMBOL CHARACTER)
+             datum: (A-CLEAR)>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:43:30 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.055
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:44:32 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.061
+; Evaluation aborted on #<UNDEFINED-FUNCTION PREDICATE-A {100212F3F3}>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:45:00 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.057
+; Evaluation aborted on #<UNDEFINED-FUNCTION PREDICATE-A {10038A15D3}>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+((T A-CLEAR)) 
+(T A-CLEAR) 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:45:08 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.065
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:45:59 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.062
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+T 
+(NIL) 
+((T A-CLEAR)) 
+NIL 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:46:05 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.067
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+((T A-CLEAR)) 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:46:19 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.059
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:46:26 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.063
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+(NIL) 
+NIL 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+(NIL) 
+NIL 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:46:37 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.058
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:47:04 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.061
+; Evaluation aborted on #<UNDEFINED-FUNCTION TMP-FROM-PRECONDITIONS {1001E09E03}>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+(NIL) 
+NIL 
+NIL 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:47:19 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.058
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+NIL 
+NIL 
+(NIL) 
+NIL 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+NIL 
+NIL 
+NIL 
+NIL
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+NIL 
+NIL 
+(NIL) 
+NIL 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+(NIL) 
+NIL 
+NIL 
+NIL 
+NIL
+CL-USER> (elt *links* 0)
+#< (G1773)B-A-TO-TABLE -> (G1774)GOAL : (T A-CLEAR) >
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:49:41 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.055
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+(NIL) 
+NIL 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+NIL 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+(NIL) 
+NIL 
+NIL 
+"---------" 
+(NIL) 
+NIL 
+NIL 
+NIL 
+"---------" 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:49:59 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.106
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; Evaluation aborted on #<SB-INT:SIMPLE-PROGRAM-ERROR "invalid number of arguments: ~S" {100346FF63}>.
+CL-USER> (every t '(t t t))
+; Evaluation aborted on #<UNDEFINED-FUNCTION T {10039876B3}>.
+CL-USER> (every (lambda (x) x) '(t t t))
+T
+CL-USER> (every (lambda (x) (not x)) '(t t t))
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:52:59 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.076
+CL-USER> (threatenslink *plan* (elt *links* 0))
+
+NIL 
+T 
+T 
+T 
+"---------" 
+NIL 
+T 
+T 
+T 
+"---------" 
+NIL 
+NIL 
+T 
+T 
+"---------" 
+NIL 
+NIL 
+T 
+T 
+"---------" 
+NIL 
+NIL 
+T 
+T 
+"---------" 
+NIL 
+NIL 
+T 
+T 
+"---------" 
+NIL 
+NIL 
+T 
+T 
+"---------" 
+NIL 
+T 
+T 
+T 
+"---------" 
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:53:59 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (IF (EVERY (LAMBDA (X) X)
+;                (MAPCAR #'PREDICATEISOPPOSITE (LIST PRECONDITIONS)
+;                        TMP-FROM-EFFECTS)))
+; 
+; caught ERROR:
+;   error while parsing arguments to special operator IF:
+;     too few elements in
+;       ((EVERY (LAMBDA (X) X)
+;               (MAPCAR #'PREDICATEISOPPOSITE (LIST PRECONDITIONS)
+;                       TMP-FROM-EFFECTS)))
+;     to satisfy lambda list
+;       (SB-C::TEST SB-C::THEN &OPTIONAL SB-C::ELSE):
+;     between 2 and 3 expected, but got 1
+
+;     (IF (EVERY (LAMBDA (X) X)
+;                (MAPCAR #'PREDICATEISOPPOSITE (LIST PRECONDITIONS)
+;                        TMP-TO-EFFECTS)))
+; 
+; caught ERROR:
+;   error while parsing arguments to special operator IF:
+;     too few elements in
+;       ((EVERY (LAMBDA (X) X)
+;               (MAPCAR #'PREDICATEISOPPOSITE (LIST PRECONDITIONS)
+;                       TMP-TO-EFFECTS)))
+;     to satisfy lambda list
+;       (SB-C::TEST SB-C::THEN &OPTIONAL SB-C::ELSE):
+;     between 2 and 3 expected, but got 1
+
+;     (IF (EVERY (LAMBDA (X) X)
+;                (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                        TMP-FROM-PRECONDITIONS)))
+; 
+; caught ERROR:
+;   error while parsing arguments to special operator IF:
+;     too few elements in
+;       ((EVERY (LAMBDA (X) X)
+;               (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                       TMP-FROM-PRECONDITIONS)))
+;     to satisfy lambda list
+;       (SB-C::TEST SB-C::THEN &OPTIONAL SB-C::ELSE):
+;     between 2 and 3 expected, but got 1
+
+;     (IF (EVERY (LAMBDA (X) X)
+;                (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                        TMP-TO-PRECONDITIONS)))
+; 
+; caught ERROR:
+;   error while parsing arguments to special operator IF:
+;     too few elements in
+;       ((EVERY (LAMBDA (X) X)
+;               (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                       TMP-TO-PRECONDITIONS)))
+;     to satisfy lambda list
+;       (SB-C::TEST SB-C::THEN &OPTIONAL SB-C::ELSE):
+;     between 2 and 3 expected, but got 1
+
+;     (PRINT "---------")
+; ==>
+;   "---------"
+; 
+; note: deleting unreachable code
+; 
+; compilation unit finished
+;   caught 4 ERROR conditions
+;   printed 1 note
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.057
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:58:28 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (LIST PRECONDITIONS) TMP-FROM-EFFECTS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {100384EBD3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     (UNLESS #:VAL5 (RETURN-FROM #:BLOCK3 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER4" :IN THREATENSLINK))
+; 
+; compilation unit finished
+;   printed 3 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.071
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:58:46 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (LIST PRECONDITIONS) TMP-FROM-EFFECTS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {1001E2F463}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     (UNLESS #:VAL5 (RETURN-FROM #:BLOCK3 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER4" :IN THREATENSLINK))
+; 
+; compilation unit finished
+;   printed 3 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.065
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:58:46 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (LIST PRECONDITIONS) TMP-FROM-EFFECTS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {1004E85A23}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     (UNLESS #:VAL5 (RETURN-FROM #:BLOCK3 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER4" :IN THREATENSLINK))
+; 
+; compilation unit finished
+;   printed 3 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.061
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:59:43 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (LIST PRECONDITIONS) TMP-FROM-EFFECTS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {1003F3D0E3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     (UNLESS #:VAL5 (RETURN-FROM #:BLOCK3 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER4" :IN THREATENSLINK))
+; 
+; compilation unit finished
+;   printed 3 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.066
+; Evaluation aborted on #<TYPE-ERROR expected-type: LIST
+             datum: #< (G1965)B-A-TO-TABLE -> (G1966)GOAL : (T A-CLEAR) >>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 04:59:53 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (LIST PRECONDITIONS) TMP-FROM-EFFECTS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {100263EBC3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     (UNLESS #:VAL5 (RETURN-FROM #:BLOCK3 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER4" :IN THREATENSLINK))
+; 
+; compilation unit finished
+;   printed 3 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.066
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 05:00:04 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (LIST PRECONDITIONS) TMP-FROM-EFFECTS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {1005726D73}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     (UNLESS #:VAL5 (RETURN-FROM #:BLOCK3 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL5 (FUNCALL (LAMBDA # X) #:G2)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX78))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER4" :IN THREATENSLINK))
+; 
+; compilation unit finished
+;   printed 3 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.067
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 05:01:01 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX72))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {10047138F3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX72))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX80))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {10046E6DA3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX80))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+; 
+; compilation unit finished
+;   printed 6 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.065
+; Evaluation aborted on #<TYPE-ERROR expected-type: LIST
+             datum: #< (G1997)B-A-TO-TABLE -> (G1998)GOAL : (T A-CLEAR) >>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 05:02:08 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX72))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {10039CBFB3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX72))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX80))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {10039A7373}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX80))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+; 
+; compilation unit finished
+;   printed 6 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.069
+; Evaluation aborted on #<TYPE-ERROR expected-type: LIST
+             datum: #< (G2093)B-A-TO-TABLE -> (G2094)GOAL : (T A-CLEAR) >>.
+CL-USER> (threatenslink *plan* (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 05:02:20 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX72))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {1002182063}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX72))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX80))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {100215DC43}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX80))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+; 
+; compilation unit finished
+;   printed 6 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.069
+; Evaluation aborted on #<SB-INT:SIMPLE-PROGRAM-ERROR "invalid number of arguments: ~S" {10044B33E3}>.
 CL-USER> 

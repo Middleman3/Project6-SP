@@ -431,6 +431,13 @@ after start and before goal.  Returns the modified copy of the plan."
     )
   )
 
+(defun predicateIsOpposite (predicate-a predicate-b)
+  (if (and (string= (elt (cdr predicate-a) 0) (elt (cdr predicate-b) 0)) (not (equal (car (predicate-a)) (car (predicate-b)))))
+      (return-from predicateIsOpposite t)
+      )
+  )
+
+
 (defun hook-up-operator (from to precondition plan
 			      current-depth max-depth
 			      new-operator-was-added)
@@ -461,6 +468,35 @@ plan, else nil if not solved."
     )
   )
 
+(defun threatensLink (plan maybe-threatened-link)
+  (let ((threats '())
+	(from (link-from maybe-threatened-link))
+	(to (link-to maybe-threatened-link))
+	(preconditions (link-precond maybe-threatened-link)))
+    (dolist (link (plan-links plan))
+      (let ((tmp-from-preconditions (operator-preconditions (link-from link)))
+	    (tmp-from-effects (operator-effects (link-from link)))
+	    (tmp-to-preconditions (operator-preconditions (link-to link)))
+	    (tmp-to-effects (operator-effects (link-to link))))
+	(if (or (every (lambda (x) x) (mapcar #'predicateIsOpposite (list preconditions) tmp-from-effects)) (every (lambda (x) x) (mapcar #'predicateIsOpposite (operator-effects to) tmp-to-preconditions)))
+	    (setf threats (append (cons (link-from link) link) threats))
+	    )
+	(if (or (every (lambda (x) x) (mapcar #'predicateIsOpposite (list preconditions) tmp-to-effects)) (every (lambda (x) x) (mapcar #'predicateIsOpposite (operator-effects to) tmp-from-preconditions)))
+	    (setf threats (append (cons (link-to link) link) threats))
+	    )
+	)
+      )
+    (return-from threatensLink threats)
+    )
+  )
+
+(defun operatorThreatening (plan maybe-threatening-operator)
+  (let ((threats '()))
+
+    (return-from operatorThreatening threats)
+    )
+  )
+
 (defun threats (plan maybe-threatening-operator maybe-threatened-link)
   "After hooking up an operator, we have two places that we need to check for threats.
 First, we need to see if the link we just created is threatened by some operator.
@@ -474,6 +510,7 @@ situations you need to check are the ones described in the previous paragraph.
 This function should assume that if MAYBE-THREATENING-OPERATOR is NIL, then no
 operator was added and we don't have to check for its threats.  However, we must
 always check for any operators which threaten MAYBE-THREATENED-LINK."
+  (concatenate (threatensLink plan maybe-threatened-link) (operatorThreatening plan maybe-threatening-operator))
 )
 
 
