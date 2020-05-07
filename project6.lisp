@@ -292,6 +292,20 @@ or before the link, and it's got an effect which counters the link's effect."
 (defun inconsistent-p (plan)
   "Plan orderings are inconsistent"
   ;; hint: cyclic-assoc-list
+  (let ((cycles (cyclic-assoc-list (plan-orderings plan))))
+
+    (if (not cycles)
+	(dolist (ordering (plan-orderings plan))
+	  (if (string= (operator-name (cdr ordering)) "START")
+	      (return-from inconsistent-p t) ; something leads to start
+	      )
+	  (if (string= (operator-name (car ordering)) "GOAL")
+	      (return-from inconsistent-p t) ; goal leads to something
+	      )
+	  )
+	(return-from inconsistent-p t) ; cycles exist
+	)
+    )
 )
 
 (defun pick-precond (plan)
@@ -300,14 +314,43 @@ If there is no such pair, return nil"
 ;;; SPEED HINT.  Any precondition will work.  But this is an opportunity
 ;;; to pick a smart one.  Perhaps you might select the precondition
 ;;; which has the fewest possible operators which solve it, so it fails
-;;; the fastest if it's wrong. 
-)
+;;; the fastest if it's wrong.
+  (let* ((links (plan-links plan))
+	(orderings (plan-orderings plan))
+	(operators (plan-operators plan))
+	(links-preconditions (mapcar #'list (mapcar #'link-from links) (mapcar #'link-precond links))))
+    (dolist (operator operators)
+      (dolist (precondition (operator-preconditions operator))
+	(if (member operator (mapcar #'operator-name (mapcar #'car links-preconditions)))
+	    (let ((operator-index (position operator (mapcar #'car links-preconditions)))
+		  (current-preconditions (cdr (elt links-preconditions operator-index))))
+	      (if (not (member precondition current-preconditions))
+		  (return-from pick-precond (cons operator precondition))
+		  )
+	      )
+	    (return-from pick-precond (cons operator precondition))   
+	  )
+	)
+      )
+    )
+  )
 
 (defun all-effects (precondition plan)
   "Given a precondition, returns a list of ALL operators presently IN THE PLAN which have
 effects which can achieve this precondition."
   ;; hint: there's short, efficient way to do this, and a long,
   ;; grotesquely inefficient way.  Don't do the inefficient way.
+  (let ((preconditions (mapcar #'operator-preconditions (mapcar #'link-to (plan-links plan))))
+	(indices '()))
+    (dotimes (index (length preconditions))
+      (dolist (tmp-precondition (elt preconditions index))
+	(if (equal tmp-precondition precondition)
+	    (setf indices (append indices (list (elt (mapcar #'link-to (plan-links plan)) index))))
+	    )
+	)
+      )
+    (return-from all-effects indices)
+    )
 )
 
 (defun all-operators (precondition)
@@ -315,6 +358,17 @@ effects which can achieve this precondition."
 an effect that can achieve this precondition."
   ;; hint: there's short, efficient way to do this, and a long,
   ;; grotesquely inefficient way.  Don't do the inefficient way.
+  (let ((preconditions (mapcar #'operator-preconditions (mapcar #'link-to (plan-links *plan*))))
+	(indices '()))
+    (dotimes (index (length preconditions))
+      (dolist (tmp-precondition (elt preconditions index))
+	(if (equal tmp-precondition precondition)
+	    (setf indices (append indices (list (elt (mapcar #'link-to (plan-links plan)) index))))
+	    )
+	)
+      )
+    (return-from all-operators indices)
+    )
 )
 
 (defun select-subgoal (plan current-depth max-depth)
@@ -325,7 +379,16 @@ on those subgoals.  Returns a solved plan, else nil if not solved."
 	  ;;; you just pick one arbitrarily and that's all.  Note that the
 	  ;;; algorithm says "pick a plan step...", rather than "CHOOSE a
 	  ;;; plan step....".  This makes the algorithm much faster.  
-)
+  (dolist (operator (plan-operators plan))
+    (dolist (precondition (operator-preconditions operator))
+      (let ((plan (choose-operator (cons operator precondition) plan current-depth max-depth)))
+	(if plan
+	    (return-from select-subgoal plan)
+	    )
+	)
+      )
+     )
+  )
 
 
 (defun choose-operator (op-precond-pair plan current-depth max-depth)
@@ -333,6 +396,19 @@ on those subgoals.  Returns a solved plan, else nil if not solved."
 hook-up-operator for all possible operators in the plan.  If that
 doesn't work, recursively call add operators and call hook-up-operators
 on them.  Returns a solved plan, else nil if not solved."
+  (let ((plan-a (hook-up-operator (operator-from (car op-precond-pair))
+		    (operator-to (car op-precond-pair))
+		    (cdr op-precond-pair)
+		    plan
+		    0
+		    max-depth
+		    nil))
+	(plan-b (add-operator (car op-precond-pair) plan)))
+    (if plan-a
+	(return-from choose-operator plan-a)
+	(return-from choose-operator plan-b)
+	)
+    )
 )
 
 (defun add-operator (operator plan)
@@ -345,7 +421,15 @@ after start and before goal.  Returns the modified copy of the plan."
   ;;; also hint: use PUSHNEW to add stuff but not duplicates
   ;;; Don't use PUSHNEW everywhere instead of PUSH, just where it
   ;;; makes specific sense.
-)
+  (let ((new-plan (copy-plan plan)))
+    (return-from add-operator (hook-up-operator (operator-from operator)
+				     (operator-to operator)
+				     (operator-precondition operator)
+				     plan 0 5 t)) ; don't know what to do with max-depth
+	  
+
+    )
+  )
 
 (defun hook-up-operator (from to precondition plan
 			      current-depth max-depth
@@ -361,7 +445,21 @@ plan, else nil if not solved."
   ;;; also hint: use PUSHNEW to add stuff but not duplicates  
   ;;; Don't use PUSHNEW everywhere instead of PUSH, just where it
   ;;; makes specific sense.
-)
+  (let* ((links (plan-links plan))
+	(new-link (make-link :from (copy-operator from) :precond precondition :to (copy-operator to)))
+	(operators (plan-operators plan))
+	(threats (threats plan from new-link)))
+    (if (> (length threats) 0)
+	(progn
+	  ; resolve somehow
+	  )
+	(progn
+	  (setf (plan-links plan) (push new-link links))
+	  (setf (plan-operators plan) (push from operators))
+	  )
+      )
+    )
+  )
 
 (defun threats (plan maybe-threatening-operator maybe-threatened-link)
   "After hooking up an operator, we have two places that we need to check for threats.
@@ -470,6 +568,7 @@ solved plan.  Returns the solved plan, else nil if no solved plan."
 
 ;;;;; TWO-BLOCK-WORLD
 ;;;;; You have two blocks on the table, A and B.   Pretty simple, no?
+#|
 (defparameter *operators*
   (list
    ;; move from table operators
@@ -488,7 +587,72 @@ solved plan.  Returns the solved plan, else nil if no solved plan."
 			 :effects '((t b-on-table) (nil b-on-a) (t a-clear))))
   "A list of strips operators without their uniq gensyms set yet -- 
 doesn't matter really -- but NOT including a goal or start operator")
+|#
+(defparameter *operators* (list 
+(make-operator :name 'B-A-TO-TABLE :preconditions '((T B-ON-A) (T B-CLEAR)) :effects '((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR))) 
+(make-operator :name 'A-TABLE-TO-B :preconditions '((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR)) :effects '((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B))) 
+(make-operator :name 'START :preconditions 'nil :effects '((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR))) 
+(make-operator :name 'GOAL :preconditions '((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR)) :effects 'nil)))
 
+
+(defparameter *links* (list
+
+(make-link 
+:from (copy-operator (elt *operators* 0))
+:precond '(T A-CLEAR)
+:to (copy-operator (elt *operators* 3)))
+
+(make-link 
+:from (copy-operator (elt *operators* 0))
+:precond '(T B-ON-TABLE)
+:to (copy-operator (elt *operators* 3)))
+
+(make-link
+:from (copy-operator (elt *operators* 2))
+:precond '(T B-CLEAR)
+:to (copy-operator (elt *operators* 0)))
+
+(make-link
+:from (copy-operator (elt *operators* 2))
+:precond '(T B-ON-A)
+:to (copy-operator (elt *operators* 0)))
+
+(make-link
+:from (copy-operator (elt *operators* 0))
+:precond '(T A-CLEAR)
+:to (copy-operator (elt *operators* 1)))
+
+(make-link
+:from (copy-operator (elt *operators* 2))
+:precond '(T B-CLEAR)
+:to (copy-operator (elt *operators* 1)))
+
+(make-link
+:from (copy-operator (elt *operators* 2))
+:precond '(T A-ON-TABLE)
+:to (copy-operator (elt *operators* 1)))
+
+(make-link
+:from (copy-operator (elt *operators* 1))
+:precond '(T A-ON-B)
+:to (copy-operator (elt *operators* 3)))))
+
+(defparameter *orderings* (list 
+(cons (copy-operator (elt *operators* 0)) (copy-operator (elt *operators* 1)))
+(cons (copy-operator (elt *operators* 0)) (copy-operator (elt *operators* 3)))
+(cons (copy-operator (elt *operators* 2)) (copy-operator (elt *operators* 0)))
+(cons (copy-operator (elt *operators* 1)) (copy-operator (elt *operators* 3)))
+(cons (copy-operator (elt *operators* 2)) (copy-operator (elt *operators* 1)))
+(cons (copy-operator (elt *operators* 2)) (copy-operator (elt *operators* 3)))))
+
+
+(defparameter *start* (elt *operators* 2))
+(defparameter *goal* (elt *operators* 3))
+
+(defparameter *plan* (make-plan))
+(setf (plan-operators *plan*) (mapcar #'copy-operator *operators*))
+(setf (plan-orderings *plan*) *orderings*)
+(setf (plan-links *plan*) *links*)
 
 ;;; b is on top of a
 (defparameter *start-effects*

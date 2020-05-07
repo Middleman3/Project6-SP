@@ -1,0 +1,257 @@
+; SLIME 2.24; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 12:47:39 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.046
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 12:48:09 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.060
+
+CL-USER> *plan*
+#< PLAN operators: 
+#S(OPERATOR
+   :NAME B-A-TO-TABLE
+   :UNIQ G641
+   :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+   :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+#S(OPERATOR
+   :NAME A-TABLE-TO-B
+   :UNIQ G642
+   :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+   :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+#S(OPERATOR
+   :NAME START
+   :UNIQ G643
+   :PRECONDITIONS NIL
+   :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+#S(OPERATOR
+   :NAME GOAL
+   :UNIQ G644
+   :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+   :EFFECTS NIL) 
+links: 
+#< (G613)B-A-TO-TABLE -> (G614)GOAL : (T A-CLEAR) >
+#< (G615)B-A-TO-TABLE -> (G616)GOAL : (T B-ON-TABLE) >
+#< (G617)START -> (G618)B-A-TO-TABLE : (T B-CLEAR) >
+#< (G619)START -> (G620)B-A-TO-TABLE : (T B-ON-A) >
+#< (G621)B-A-TO-TABLE -> (G622)A-TABLE-TO-B : (T A-CLEAR) >
+#< (G623)START -> (G624)A-TABLE-TO-B : (T B-CLEAR) >
+#< (G625)START -> (G626)A-TABLE-TO-B : (T A-ON-TABLE) >
+#< (G627)A-TABLE-TO-B -> (G628)GOAL : (T A-ON-B) > 
+orderings: 
+#[ (G629)B-A-TO-TABLE -> (G630)A-TABLE-TO-B ]
+#[ (G631)B-A-TO-TABLE -> (G632)GOAL ]
+#[ (G633)START -> (G634)B-A-TO-TABLE ]
+#[ (G635)A-TABLE-TO-B -> (G636)GOAL ]
+#[ (G637)START -> (G638)A-TABLE-TO-B ]
+#[ (G639)START -> (G640)GOAL ]
+>
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 12:49:16 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.048
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 12:52:51 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.054
+CL-USER> *plan*
+#< PLAN operators:  
+links:  
+orderings: 
+>
+CL-USER> (do-pop)
+
+Search Depth: 1; Evaluation aborted on #<UNDEFINED-FUNCTION OPERATOR-FROM {1003502BF3}>.
+CL-USER> (do-pop)
+
+Search Depth: 1; Evaluation aborted on #<UNDEFINED-FUNCTION OPERATOR-FROM {1003724F63}>.
+CL-USER> *plan*
+
+#< PLAN operators:  
+links:  
+orderings: 
+>
+CL-USER> *operators*
+(#S(OPERATOR
+    :NAME B-A-TO-TABLE
+    :UNIQ NIL
+    :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+    :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+ #S(OPERATOR
+    :NAME A-TABLE-TO-B
+    :UNIQ NIL
+    :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+    :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+ #S(OPERATOR
+    :NAME START
+    :UNIQ NIL
+    :PRECONDITIONS NIL
+    :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+ #S(OPERATOR
+    :NAME GOAL
+    :UNIQ NIL
+    :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+    :EFFECTS NIL))
+CL-USER> *links*
+(#< (G677)B-A-TO-TABLE -> (G678)GOAL : (T A-CLEAR) >
+ #< (G679)B-A-TO-TABLE -> (G680)GOAL : (T B-ON-TABLE) >
+ #< (G681)START -> (G682)B-A-TO-TABLE : (T B-CLEAR) >
+ #< (G683)START -> (G684)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G685)B-A-TO-TABLE -> (G686)A-TABLE-TO-B : (T A-CLEAR) >
+ #< (G687)START -> (G688)A-TABLE-TO-B : (T B-CLEAR) >
+ #< (G689)START -> (G690)A-TABLE-TO-B : (T A-ON-TABLE) >
+ #< (G691)A-TABLE-TO-B -> (G692)GOAL : (T A-ON-B) >)
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 01:49:26 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.074
+CL-USER> (hook-up-operator (make-operator :name 'TEST :precondition '((T B-ON-A)) :effects '((T B-ON-TABLE))) (elt *operators* 0) '(T B-ON-A) *plan* 0 5 t)
+; Evaluation aborted on #<UNKNOWN-KEYWORD-ARGUMENT {1002EFA003}>.
+CL-USER> (hook-up-operator (make-operator :name 'TEST :preconditions '((T B-ON-A)) :effects '((T B-ON-TABLE))) (elt *operators* 0) '(T B-ON-A) *plan* 0 5 t)
+
+NIL 
+(#< (G737)TEST -> (G738)B-A-TO-TABLE : (T B-ON-A) >) 
+(#< (G737)TEST -> (G738)B-A-TO-TABLE : (T B-ON-A) >)
+CL-USER> (hook-up-operator (make-operator :name 'TEST :preconditions '((T B-ON-A)) :effects '((T B-ON-TABLE))) (elt *operators* 0) '(T B-ON-A) *plan* 0 5 t)
+
+NIL 
+(#< (G739)TEST -> (G740)B-A-TO-TABLE : (T B-ON-A) >) 
+(#< (G739)TEST -> (G740)B-A-TO-TABLE : (T B-ON-A) >)
+CL-USER> *plan*
+#< PLAN operators:  
+links:  
+orderings: 
+>
+CL-USER> *test-orderings*
+; Evaluation aborted on #<UNBOUND-VARIABLE *TEST-ORDERINGS* {10030C3B43}>.
+CL-USER> *orderings*
+((#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G725
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #S(OPERATOR
+       :NAME A-TABLE-TO-B
+       :UNIQ #:G726
+       :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+       :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B))))
+ (#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G727
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #S(OPERATOR
+       :NAME GOAL
+       :UNIQ #:G728
+       :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+       :EFFECTS NIL))
+ (#S(OPERATOR
+     :NAME START
+     :UNIQ #:G729
+     :PRECONDITIONS NIL
+     :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+  . #S(OPERATOR
+       :NAME B-A-TO-TABLE
+       :UNIQ #:G730
+       :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+       :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR))))
+ (#S(OPERATOR
+     :NAME A-TABLE-TO-B
+     :UNIQ #:G731
+     :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+     :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+  . #S(OPERATOR
+       :NAME GOAL
+       :UNIQ #:G732
+       :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+       :EFFECTS NIL))
+ (#S(OPERATOR
+     :NAME START
+     :UNIQ #:G733
+     :PRECONDITIONS NIL
+     :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+  . #S(OPERATOR
+       :NAME A-TABLE-TO-B
+       :UNIQ #:G734
+       :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+       :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B))))
+ (#S(OPERATOR
+     :NAME START
+     :UNIQ #:G735
+     :PRECONDITIONS NIL
+     :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+  . #S(OPERATOR
+       :NAME GOAL
+       :UNIQ #:G736
+       :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+       :EFFECTS NIL)))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 01:58:51 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.060
+CL-USER> *plan*
+#< PLAN operators: 
+#S(OPERATOR
+   :NAME B-A-TO-TABLE
+   :UNIQ G769
+   :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+   :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+#S(OPERATOR
+   :NAME A-TABLE-TO-B
+   :UNIQ G770
+   :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+   :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+#S(OPERATOR
+   :NAME START
+   :UNIQ G771
+   :PRECONDITIONS NIL
+   :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+#S(OPERATOR
+   :NAME GOAL
+   :UNIQ G772
+   :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+   :EFFECTS NIL) 
+links: 
+#< (G741)B-A-TO-TABLE -> (G742)GOAL : (T A-CLEAR) >
+#< (G743)B-A-TO-TABLE -> (G744)GOAL : (T B-ON-TABLE) >
+#< (G745)START -> (G746)B-A-TO-TABLE : (T B-CLEAR) >
+#< (G747)START -> (G748)B-A-TO-TABLE : (T B-ON-A) >
+#< (G749)B-A-TO-TABLE -> (G750)A-TABLE-TO-B : (T A-CLEAR) >
+#< (G751)START -> (G752)A-TABLE-TO-B : (T B-CLEAR) >
+#< (G753)START -> (G754)A-TABLE-TO-B : (T A-ON-TABLE) >
+#< (G755)A-TABLE-TO-B -> (G756)GOAL : (T A-ON-B) > 
+orderings: 
+#[ (G757)B-A-TO-TABLE -> (G758)A-TABLE-TO-B ]
+#[ (G759)B-A-TO-TABLE -> (G760)GOAL ]
+#[ (G761)START -> (G762)B-A-TO-TABLE ]
+#[ (G763)A-TABLE-TO-B -> (G764)GOAL ]
+#[ (G765)START -> (G766)A-TABLE-TO-B ]
+#[ (G767)START -> (G768)GOAL ]
+>
+CL-USER> (hook-up-operator (make-operator :name 'TEST :preconditions '((T B-ON-A)) :effects '((T B-ON-TABLE))) (elt *operators* 0) '(T B-ON-A) *plan* 0 5 t)
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 01:59:21 PM):
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.061
+CL-USER> (hook-up-operator (make-operator :name 'TEST :preconditions '((T B-ON-A)) :effects '((T B-ON-TABLE))) (elt *operators* 0) '(T B-ON-A) *plan* 0 5 t)
+
+(#< (G807)TEST -> (G808)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G775)B-A-TO-TABLE -> (G776)GOAL : (T A-CLEAR) >
+ #< (G777)B-A-TO-TABLE -> (G778)GOAL : (T B-ON-TABLE) >
+ #< (G779)START -> (G780)B-A-TO-TABLE : (T B-CLEAR) >
+ #< (G781)START -> (G782)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G783)B-A-TO-TABLE -> (G784)A-TABLE-TO-B : (T A-CLEAR) >
+ #< (G785)START -> (G786)A-TABLE-TO-B : (T B-CLEAR) >
+ #< (G787)START -> (G788)A-TABLE-TO-B : (T A-ON-TABLE) >
+ #< (G789)A-TABLE-TO-B -> (G790)GOAL : (T A-ON-B) >) 
+(#< (G807)TEST -> (G808)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G775)B-A-TO-TABLE -> (G776)GOAL : (T A-CLEAR) >
+ #< (G777)B-A-TO-TABLE -> (G778)GOAL : (T B-ON-TABLE) >
+ #< (G779)START -> (G780)B-A-TO-TABLE : (T B-CLEAR) >
+ #< (G781)START -> (G782)B-A-TO-TABLE : (T B-ON-A) >
+ #< (G783)B-A-TO-TABLE -> (G784)A-TABLE-TO-B : (T A-CLEAR) >
+ #< (G785)START -> (G786)A-TABLE-TO-B : (T B-CLEAR) >
+ #< (G787)START -> (G788)A-TABLE-TO-B : (T A-ON-TABLE) >
+ #< (G789)A-TABLE-TO-B -> (G790)GOAL : (T A-ON-B) >)
+CL-USER> (hook-up-operator (make-operator :name 'TEST :preconditions '((T A-ON-B)) :effects 'NIL) (elt *operators* 0) '(T B-ON-A) *plan* 0 5 t)
