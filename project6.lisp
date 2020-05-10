@@ -527,6 +527,7 @@ plan, else nil if not solved."
     )
   )
 
+
 (defun threats (plan maybe-threatening-operator maybe-threatened-link)
   "After hooking up an operator, we have two places that we need to check for threats.
 First, we need to see if the link we just created is threatened by some operator.
@@ -540,7 +541,16 @@ situations you need to check are the ones described in the previous paragraph.
 This function should assume that if MAYBE-THREATENING-OPERATOR is NIL, then no
 operator was added and we don't have to check for its threats.  However, we must
 always check for any operators which threaten MAYBE-THREATENED-LINK."
-  (concatenate (threatensLink plan maybe-threatened-link) (operatorThreatening plan maybe-threatening-operator))
+   ;(concatenate (threatensLink plan maybe-threatened-link) (operatorThreatening plan maybe-threatening-operator))
+  (let (final '())
+    (dolist (item (threatensLink plan maybe-threatened-link))
+      (setf final (append final (list item)))
+      )
+    (dolist (item (operatorThreatening plan maybe-threatening-operator))
+      (setf final (append final (list item)))
+      )
+    (return-from threats final)
+    )
 )
 
 
@@ -552,21 +562,22 @@ are copies of the original plan."
   ;;; Also check out MAPC
   ;;; SPEED HINT.  You might handle the one-threat case specially.
   ;;; In that case you could also check for inconsistency right then and there too.
-)
+  
+  )
 
 (defun promote (operator link plan)
   "Promotes an operator relative to a link.  Doesn't copy the plan."
-)
+  )
 
 (defun demote (operator link plan)
   "Demotes an operator relative to a link.  Doesn't copy the plan."
-)
+  )
 
 (defun resolve-threats (plan threats current-depth max-depth)
   "Tries all combinations of solutions to all the threats in the plan,
 then recursively calls SELECT-SUBGOAL on them until one returns a
 solved plan.  Returns the solved plan, else nil if no solved plan."
-)
+  )
 
 
 

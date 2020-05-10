@@ -4219,4 +4219,1275 @@ CL-USER> (threats *plan* (elt *operators* 0) (elt *links* 0))
 ; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
 ; compilation finished in 0:00:00.121
 ; Evaluation aborted on #<SIMPLE-ERROR "bad thing to be a type specifier: ~/sb-impl:print-type-specifier/" {1004AF7593}>.
+CL-USER> (threats *plan* (elt *operators* 0) (elt *links* 0))
+; Evaluation aborted on #<SIMPLE-ERROR "bad thing to be a type specifier: ~/sb-impl:print-type-specifier/" {100411FDF3}>.
+CL-USER> (operatorThreatening
+	  )
+; Evaluation aborted on #<SB-INT:SIMPLE-PROGRAM-ERROR "invalid number of arguments: ~S" {1004AB9AF3}>.
+CL-USER> (operatorThreatening *plan* (elt *operators* 0))
+((#S(OPERATOR
+     :NAME GOAL
+     :UNIQ #:G3054
+     :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+     :EFFECTS NIL)
+  . #< (G3053)B-A-TO-TABLE -> (G3054)GOAL : (T A-CLEAR) >)
+ (#S(OPERATOR
+     :NAME GOAL
+     :UNIQ #:G3056
+     :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+     :EFFECTS NIL)
+  . #< (G3055)B-A-TO-TABLE -> (G3056)GOAL : (T B-ON-TABLE) >)
+ (#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G3058
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #< (G3057)START -> (G3058)B-A-TO-TABLE : (T B-CLEAR) >)
+ (#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G3060
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #< (G3059)START -> (G3060)B-A-TO-TABLE : (T B-ON-A) >)
+ (#S(OPERATOR
+     :NAME A-TABLE-TO-B
+     :UNIQ #:G3064
+     :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+     :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+  . #< (G3063)START -> (G3064)A-TABLE-TO-B : (T B-CLEAR) >)
+ (#S(OPERATOR
+     :NAME A-TABLE-TO-B
+     :UNIQ #:G3066
+     :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+     :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+  . #< (G3065)START -> (G3066)A-TABLE-TO-B : (T A-ON-TABLE) >)
+ (#S(OPERATOR
+     :NAME GOAL
+     :UNIQ #:G3068
+     :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+     :EFFECTS NIL)
+  . #< (G3067)A-TABLE-TO-B -> (G3068)GOAL : (T A-ON-B) >))
+CL-USER> (threats *plan* (elt *operators* 0) (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 09:37:00 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {10035883C3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {1003562C23}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+
+; in: DEFUN OPERATORTHREATENING
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 3 {1003DCCBE3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN OPERATORTHREATENING))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 4 {1003DA84A3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN OPERATORTHREATENING))
+; 
+; compilation unit finished
+;   printed 12 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.121
+; Evaluation aborted on #<SIMPLE-ERROR "bad thing to be a type specifier: ~/sb-impl:print-type-specifier/" {1004CF4903}>.
+CL-USER> (threats *plan* (elt *operators* 0) (elt *links* 0))
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 09:37:16 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {1002CD5D63}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {1002CA8613}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+
+; in: DEFUN OPERATORTHREATENING
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 3 {10037AB783}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN OPERATORTHREATENING))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 4 {100377EF83}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN OPERATORTHREATENING))
+; 
+; compilation unit finished
+;   printed 12 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.094
+CL-USER> (threats *plan* (elt *operators* 0) (elt *links* 0))
+"poop"
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 09:37:48 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {1001F8D823}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {1001F68393}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+
+; in: DEFUN OPERATORTHREATENING
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 3 {1002FD8933}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN OPERATORTHREATENING))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 4 {1002FB4193}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN OPERATORTHREATENING))
+; 
+; compilation unit finished
+;   printed 12 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.094
+CL-USER> (threats *plan* (elt *operators* 0) (elt *links* 0))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 09:38:02 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {1005C4E0E3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {1005C28AE3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+
+; in: DEFUN OPERATORTHREATENING
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 3 {1002AB3593}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN OPERATORTHREATENING))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 4 {1002A8EF03}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN OPERATORTHREATENING))
+; 
+; compilation unit finished
+;   printed 12 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.121
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 09:38:02 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {10055EDE43}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {10055C87E3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+
+; in: DEFUN OPERATORTHREATENING
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 3 {1005EBB703}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN OPERATORTHREATENING))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 4 {1006647693}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN OPERATORTHREATENING))
+; 
+; compilation unit finished
+;   printed 12 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.095
+; Evaluation aborted on #<TYPE-ERROR expected-type: LIST
+             datum: #< (G3149)B-A-TO-TABLE -> (G3150)GOAL : (T A-CLEAR) >>.
+CL-USER> (threats *plan* (elt *operators* 0) (elt *links* 0))
+NIL
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 09:38:17 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {1004FBCBE3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {1004F973F3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+
+; in: DEFUN OPERATORTHREATENING
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 3 {100587B633}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN OPERATORTHREATENING))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 4 {1005856F33}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN OPERATORTHREATENING))
+; 
+; compilation unit finished
+;   printed 12 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.096
+CL-USER> (threats *plan* (elt *operators* 0) (elt *links* 0))
+((#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G3245
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #< (G3245)B-A-TO-TABLE -> (G3246)GOAL : (T A-CLEAR) >)
+ (#S(OPERATOR
+     :NAME GOAL
+     :UNIQ #:G3246
+     :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+     :EFFECTS NIL)
+  . #< (G3245)B-A-TO-TABLE -> (G3246)GOAL : (T A-CLEAR) >)
+ (#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G3247
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #< (G3247)B-A-TO-TABLE -> (G3248)GOAL : (T B-ON-TABLE) >)
+ (#S(OPERATOR
+     :NAME GOAL
+     :UNIQ #:G3248
+     :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+     :EFFECTS NIL)
+  . #< (G3247)B-A-TO-TABLE -> (G3248)GOAL : (T B-ON-TABLE) >)
+ (#S(OPERATOR
+     :NAME START
+     :UNIQ #:G3249
+     :PRECONDITIONS NIL
+     :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+  . #< (G3249)START -> (G3250)B-A-TO-TABLE : (T B-CLEAR) >)
+ (#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G3250
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #< (G3249)START -> (G3250)B-A-TO-TABLE : (T B-CLEAR) >)
+ (#S(OPERATOR
+     :NAME START
+     :UNIQ #:G3251
+     :PRECONDITIONS NIL
+     :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+  . #< (G3251)START -> (G3252)B-A-TO-TABLE : (T B-ON-A) >)
+ (#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G3252
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #< (G3251)START -> (G3252)B-A-TO-TABLE : (T B-ON-A) >)
+ (#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G3253
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #< (G3253)B-A-TO-TABLE -> (G3254)A-TABLE-TO-B : (T A-CLEAR) >)
+ (#S(OPERATOR
+     :NAME A-TABLE-TO-B
+     :UNIQ #:G3254
+     :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+     :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+  . #< (G3253)B-A-TO-TABLE -> (G3254)A-TABLE-TO-B : (T A-CLEAR) >)
+ (#S(OPERATOR
+     :NAME START
+     :UNIQ #:G3255
+     :PRECONDITIONS NIL
+     :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+  . #< (G3255)START -> (G3256)A-TABLE-TO-B : (T B-CLEAR) >)
+ (#S(OPERATOR
+     :NAME A-TABLE-TO-B
+     :UNIQ #:G3256
+     :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+     :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+  . #< (G3255)START -> (G3256)A-TABLE-TO-B : (T B-CLEAR) >)
+ (#S(OPERATOR
+     :NAME START
+     :UNIQ #:G3257
+     :PRECONDITIONS NIL
+     :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+  . #< (G3257)START -> (G3258)A-TABLE-TO-B : (T A-ON-TABLE) >)
+ (#S(OPERATOR
+     :NAME A-TABLE-TO-B
+     :UNIQ #:G3258
+     :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+     :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+  . #< (G3257)START -> (G3258)A-TABLE-TO-B : (T A-ON-TABLE) >)
+ (#S(OPERATOR
+     :NAME A-TABLE-TO-B
+     :UNIQ #:G3259
+     :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+     :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+  . #< (G3259)A-TABLE-TO-B -> (G3260)GOAL : (T A-ON-B) >)
+ (#S(OPERATOR
+     :NAME GOAL
+     :UNIQ #:G3260
+     :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+     :EFFECTS NIL)
+  . #< (G3259)A-TABLE-TO-B -> (G3260)GOAL : (T A-ON-B) >)
+ (#S(OPERATOR
+     :NAME GOAL
+     :UNIQ #:G3246
+     :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+     :EFFECTS NIL)
+  . #< (G3245)B-A-TO-TABLE -> (G3246)GOAL : (T A-CLEAR) >)
+ (#S(OPERATOR
+     :NAME GOAL
+     :UNIQ #:G3248
+     :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+     :EFFECTS NIL)
+  . #< (G3247)B-A-TO-TABLE -> (G3248)GOAL : (T B-ON-TABLE) >)
+ (#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G3250
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #< (G3249)START -> (G3250)B-A-TO-TABLE : (T B-CLEAR) >)
+ (#S(OPERATOR
+     :NAME B-A-TO-TABLE
+     :UNIQ #:G3252
+     :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+     :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+  . #< (G3251)START -> (G3252)B-A-TO-TABLE : (T B-ON-A) >)
+ (#S(OPERATOR
+     :NAME A-TABLE-TO-B
+     :UNIQ #:G3256
+     :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+     :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+  . #< (G3255)START -> (G3256)A-TABLE-TO-B : (T B-CLEAR) >)
+ (#S(OPERATOR
+     :NAME A-TABLE-TO-B
+     :UNIQ #:G3258
+     :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+     :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+  . #< (G3257)START -> (G3258)A-TABLE-TO-B : (T A-ON-TABLE) >)
+ (#S(OPERATOR
+     :NAME GOAL
+     :UNIQ #:G3260
+     :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+     :EFFECTS NIL)
+  . #< (G3259)A-TABLE-TO-B -> (G3260)GOAL : (T A-ON-B) >))
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 09:40:29 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {10048DB6A3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {10048B64A3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+
+; in: DEFUN OPERATORTHREATENING
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 3 {1005265A53}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN OPERATORTHREATENING))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 4 {1005221443}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN OPERATORTHREATENING))
+; 
+; compilation unit finished
+;   printed 12 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.113
+CL-USER> (threats *plan* (elt *operators* 0) (elt *links* 0))
+T
+; compiling file "/home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp" (written 07 MAY 2020 09:40:48 PM):
+
+; file: /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.lisp
+; in: DEFUN THREATENSLINK
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 1 {1004294BF3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN THREATENSLINK))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE (OPERATOR-EFFECTS TO)
+;                    TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 2 {100426F5C3}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN THREATENSLINK))
+
+; in: DEFUN OPERATORTHREATENING
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-FROM-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 3 {1004B70A13}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     (UNLESS #:VAL33 (RETURN-FROM #:BLOCK31 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL33 (FUNCALL (LAMBDA # X) #:G30)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX87))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER32" :IN OPERATORTHREATENING))
+
+;     (EVERY (LAMBDA (X) X)
+;            (MAPCAR #'PREDICATEISOPPOSITE EFFECTS TMP-TO-PRECONDITIONS))
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: implementation limitation: couldn't inline expand because expansion refers to the optimized away object #<SB-C::CTRAN 4 {1004B34113}>.
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL SB-C::%FUNCALL BLOCK 
+; ==>
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     (UNLESS #:VAL6 (RETURN-FROM #:BLOCK4 NIL)))
+; 
+; note: deleting unused function
+;   (LET ((#:VAL6 (FUNCALL (LAMBDA # X) #:G3)))
+;     )
+
+; --> BLOCK SB-INT:DX-FLET FLET SB-KERNEL:%MAP LET DO BLOCK LET TAGBODY 
+; --> TAGBODY LET FUNCALL 
+; ==>
+;   (SB-C::%FUNCALL (SB-KERNEL:%COERCE-CALLABLE-FOR-CALL SB-C::FUN)
+;                   (CAR #:INDEX110))
+; 
+; note: deleting unused function
+;   (SB-C::LOCAL-INLINE (FLET "WRAPPER5" :IN OPERATORTHREATENING))
+; 
+; compilation unit finished
+;   printed 12 notes
+
+
+; /home/jr/Documents/School/CS687/projects/project6/project6-sp/project6.fasl written
+; compilation finished in 0:00:00.097
+CL-USER> *plan*
+#< PLAN operators: 
+#S(OPERATOR
+   :NAME B-A-TO-TABLE
+   :UNIQ G3337
+   :PRECONDITIONS ((T B-ON-A) (T B-CLEAR))
+   :EFFECTS ((T B-ON-TABLE) (NIL B-ON-A) (T A-CLEAR)))
+#S(OPERATOR
+   :NAME A-TABLE-TO-B
+   :UNIQ G3338
+   :PRECONDITIONS ((T A-ON-TABLE) (T B-CLEAR) (T A-CLEAR))
+   :EFFECTS ((NIL A-ON-TABLE) (NIL B-CLEAR) (T A-ON-B)))
+#S(OPERATOR
+   :NAME START
+   :UNIQ G3339
+   :PRECONDITIONS NIL
+   :EFFECTS ((T A-ON-TABLE) (T B-ON-A) (T B-CLEAR)))
+#S(OPERATOR
+   :NAME GOAL
+   :UNIQ G3340
+   :PRECONDITIONS ((T A-ON-B) (T B-ON-TABLE) (T A-CLEAR))
+   :EFFECTS NIL) 
+links: 
+#< (G3309)B-A-TO-TABLE -> (G3310)GOAL : (T A-CLEAR) >
+#< (G3311)B-A-TO-TABLE -> (G3312)GOAL : (T B-ON-TABLE) >
+#< (G3313)START -> (G3314)B-A-TO-TABLE : (T B-CLEAR) >
+#< (G3315)START -> (G3316)B-A-TO-TABLE : (T B-ON-A) >
+#< (G3317)B-A-TO-TABLE -> (G3318)A-TABLE-TO-B : (T A-CLEAR) >
+#< (G3319)START -> (G3320)A-TABLE-TO-B : (T B-CLEAR) >
+#< (G3321)START -> (G3322)A-TABLE-TO-B : (T A-ON-TABLE) >
+#< (G3323)A-TABLE-TO-B -> (G3324)GOAL : (T A-ON-B) > 
+orderings: 
+#[ (G3325)B-A-TO-TABLE -> (G3326)A-TABLE-TO-B ]
+#[ (G3327)B-A-TO-TABLE -> (G3328)GOAL ]
+#[ (G3329)START -> (G3330)B-A-TO-TABLE ]
+#[ (G3331)A-TABLE-TO-B -> (G3332)GOAL ]
+#[ (G3333)START -> (G3334)A-TABLE-TO-B ]
+#[ (G3335)START -> (G3336)GOAL ]
+>
 CL-USER> 
